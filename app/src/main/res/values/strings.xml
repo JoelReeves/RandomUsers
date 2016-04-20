@@ -3,6 +3,7 @@
 
     <!-- Menu -->
     <string name="action_refresh">Refresh</string>
+    <string name="action_settings">Settings</string>
 
     <!-- Snackbar -->
     <string name="network_unavailable">Please check your network connection</string>
@@ -16,4 +17,8 @@
     <string name="user_address">Address</string>
     <string name="user_phone_number">Phone</string>
     <string name="full_address" formatted="false">%1$s\n%2$s, %3$s %4$s</string>
+
+    <!-- SettingsActivity -->
+    <string name="text_hint"># of users to download (1–1000)</string>
+    <string name="input_error">Enter a value between 1–1000</string>
 </resources>

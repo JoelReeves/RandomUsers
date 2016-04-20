@@ -54,7 +54,6 @@ public class UserDetailActivity extends AppCompatActivity {
         if (getIntent().getExtras() != null && !getIntent().getExtras().isEmpty()) {
             Gson gson = new Gson();
             mUser = gson.fromJson(getIntent().getStringExtra(EXTRA_USER), Result.class);
-
         } else {
             finish();
             SnackbarUtils.showErrorSnackbar(this, R.string.activity_start_error);

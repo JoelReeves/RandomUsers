@@ -1,6 +1,7 @@
 package com.bromancelabs.randomusers.activities;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,6 +17,7 @@ import com.bromancelabs.randomusers.models.Results;
 import com.bromancelabs.randomusers.services.RandomUserService;
 import com.bromancelabs.randomusers.utils.DialogUtils;
 import com.bromancelabs.randomusers.utils.NetworkUtils;
+import com.bromancelabs.randomusers.utils.SharedPreferencesUtils;
 import com.bromancelabs.randomusers.utils.SnackbarUtils;
 import com.bromancelabs.randomusers.views.SimpleDividerItemDecoration;
 
@@ -68,6 +70,10 @@ public class UsersActivity extends AppCompatActivity {
                 }
                 return true;
 
+            case R.id.action_settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -75,6 +81,7 @@ public class UsersActivity extends AppCompatActivity {
 
     private void getRandomUsers() {
         final Dialog progressDialog = DialogUtils.showProgressDialog(this);
+        final String usersCount = SharedPreferencesUtils.getSavedUsersCount(this);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -82,7 +89,7 @@ public class UsersActivity extends AppCompatActivity {
                 .build();
 
         RandomUserService service = retrofit.create(RandomUserService.class);
-        Call<Results> resultsCall = service.getRandomUsers();
+        Call<Results> resultsCall = service.getRandomUsers(usersCount);
 
         resultsCall.enqueue(new Callback<Results>() {
             @Override
