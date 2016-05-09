@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.bromancelabs.randomusers.R;
 import com.bromancelabs.randomusers.utils.SharedPreferencesUtils;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnTextChanged;
 
@@ -20,9 +20,9 @@ public class SettingsActivity extends AppCompatActivity {
     private static final int MIN_VALUE = 0;
     private static final int MAX_VALUE = 1000;
 
-    @Bind(R.id.tb_toolbar) Toolbar mToolbar;
-    @Bind(R.id.til_user_value_text_input_layout) TextInputLayout editTextInputLayout;
-    @Bind(R.id.et_user_value) EditText userValueEditText;
+    @BindView(R.id.tb_toolbar) Toolbar mToolbar;
+    @BindView(R.id.til_user_value_text_input_layout) TextInputLayout editTextInputLayout;
+    @BindView(R.id.et_user_value) EditText userValueEditText;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

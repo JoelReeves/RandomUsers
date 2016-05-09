@@ -23,7 +23,7 @@ import com.bromancelabs.randomusers.views.SimpleDividerItemDecoration;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,8 +37,8 @@ public class UsersActivity extends AppCompatActivity {
     private static final String BASE_URL = "http://api.randomuser.me/";
     private List<Result> mRandomUsersList;
 
-    @Bind(R.id.tb_toolbar) Toolbar mToolbar;
-    @Bind(R.id.rv_recyclerview) RecyclerView mRecyclerView;
+    @BindView(R.id.tb_toolbar) Toolbar mToolbar;
+    @BindView(R.id.rv_recyclerview) RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

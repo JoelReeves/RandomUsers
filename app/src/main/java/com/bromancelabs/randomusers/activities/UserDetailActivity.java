@@ -19,20 +19,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class UserDetailActivity extends AppCompatActivity {
 
     private static final String EXTRA_USER = "extra_user";
 
-    @Bind(R.id.tb_toolbar) Toolbar mToolbar;
-    @Bind(R.id.iv_user_detail_image) ImageView userImageView;
-    @Bind(R.id.tv_user_name_field) TextView nameTextView;
-    @Bind(R.id.tv_user_email_field) TextView emailTextView;
-    @Bind(R.id.tv_user_birthday_field) TextView birthdayTextView;
-    @Bind(R.id.tv_user_address_field) TextView addressTextView;
-    @Bind(R.id.tv_user_phone_number_field) TextView phoneNumberTextView;
+    @BindView(R.id.tb_toolbar) Toolbar mToolbar;
+    @BindView(R.id.iv_user_detail_image) ImageView userImageView;
+    @BindView(R.id.tv_user_name_field) TextView nameTextView;
+    @BindView(R.id.tv_user_email_field) TextView emailTextView;
+    @BindView(R.id.tv_user_birthday_field) TextView birthdayTextView;
+    @BindView(R.id.tv_user_address_field) TextView addressTextView;
+    @BindView(R.id.tv_user_phone_number_field) TextView phoneNumberTextView;
 
     private Result mUser;
 

@@ -16,7 +16,7 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -47,8 +47,8 @@ public class RandomUserAdapter extends RecyclerView.Adapter<RandomUserAdapter.Ra
 
     public class RandomUserViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.iv_user_image) ImageView userImageView;
-        @Bind(R.id.tv_user_name) TextView userTextView;
+        @BindView(R.id.iv_user_image) ImageView userImageView;
+        @BindView(R.id.tv_user_name) TextView userTextView;
 
         private Result mResult;
         private Gson mGson;
