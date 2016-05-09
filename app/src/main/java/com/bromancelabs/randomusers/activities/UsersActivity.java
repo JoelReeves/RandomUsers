@@ -14,6 +14,7 @@ import com.bromancelabs.randomusers.R;
 import com.bromancelabs.randomusers.adapters.RandomUserAdapter;
 import com.bromancelabs.randomusers.models.Result;
 import com.bromancelabs.randomusers.models.Results;
+import com.bromancelabs.randomusers.services.RetrofitClient;
 import com.bromancelabs.randomusers.services.RandomUserService;
 import com.bromancelabs.randomusers.utils.DialogUtils;
 import com.bromancelabs.randomusers.utils.NetworkUtils;
@@ -28,13 +29,10 @@ import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.jackson.JacksonConverterFactory;
 import timber.log.Timber;
 
 public class UsersActivity extends AppCompatActivity {
 
-    private static final String BASE_URL = "http://api.randomuser.me/";
     private List<Result> mRandomUsersList;
 
     @BindView(R.id.tb_toolbar) Toolbar mToolbar;
@@ -83,12 +81,7 @@ public class UsersActivity extends AppCompatActivity {
         final Dialog progressDialog = DialogUtils.showProgressDialog(this);
         final String usersCount = SharedPreferencesUtils.getSavedUsersCount(this);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(JacksonConverterFactory.create())
-                .build();
-
-        RandomUserService service = retrofit.create(RandomUserService.class);
+        RandomUserService service = RetrofitClient.getClient().create(RandomUserService.class);
         Call<Results> resultsCall = service.getRandomUsers(usersCount);
 
         resultsCall.enqueue(new Callback<Results>() {
