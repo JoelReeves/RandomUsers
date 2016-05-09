@@ -1,6 +1,8 @@
-package com.bromancelabs.randomusers;
+package com.bromancelabs.randomusers.application;
 
 import android.app.Application;
+
+import com.bromancelabs.randomusers.BuildConfig;
 
 import timber.log.Timber;
 
